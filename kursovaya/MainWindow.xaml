@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:kursovaya"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Локальная база МЕМОВ" Height="600" Width="1138">
+    <Grid Background="#FFF58498">
+        <ListBox x:Name="Memelist" HorizontalAlignment="Left" Height="487" VerticalAlignment="Top" Width="224" Margin="10,72,0,0" Background="#FFF58498" OpacityMask="Black" BorderBrush="Black"/>
+        <TextBox x:Name="tb_name" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" Margin="10,39,0,0" Background="#FFF58498" SelectionBrush="Black" BorderBrush="Black"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" Text="Название или тэг мема:" VerticalAlignment="Top" Width="224" TextAlignment="Center" FontFamily="Yu Gothic Light" FontSize="10"/>
+        <Button x:Name="b_search" Content="Найти" HorizontalAlignment="Left" Height="23" Margin="143,39,0,0" VerticalAlignment="Top" Width="91" Background="Black" BorderBrush="Black" Foreground="#FFF58498" IsCancel="True" OpacityMask="Black"/>
+        <MediaElement Source="{Binding ElementName=MemeList, Path=SelectedItem.Source}" Margin="239,34,182,10"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="953,10,0,0" TextWrapping="Wrap" Text="Добавление мема" VerticalAlignment="Top" Width="177" TextAlignment="Center" FontFamily="Yu Gothic Light" FontSize="10"/>
+        <TextBlock HorizontalAlignment="Left" Height="20" Margin="948,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" TextAlignment="Center" FontFamily="Lucida Bright" FontSize="10"><Run Text="Название"/><Run Text=" мема"/><Run Text=":"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="948,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" TextAlignment="Center" FontFamily="Lucida Bright" FontSize="10"><Run Text="Категория"/><Run Text=" мема"/><Run Text=":"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="948,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" TextAlignment="Center" FontFamily="Lucida Bright" FontSize="10" Text="ХэшТэг мема:"/>
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="948,125,0,0" TextWrapping="Wrap" Text="Путь к мему на пк:" VerticalAlignment="Top" Width="177" TextAlignment="Center" FontFamily="Lucida Bright"/>
+        <TextBlock HorizontalAlignment="Left" Height="17" Margin="948,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" TextAlignment="Center" FontFamily="Lucida Bright"><Run Text="Ссылка "/><Run Text="URL "/><Run Text=" на мем:"/></TextBlock>
+        <TextBox x:Name="tb_new_name" HorizontalAlignment="Left" Height="20" Margin="1032,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Background="#FFF58498" BorderBrush="Black"/>
+        <TextBox x:Name="tb_category" HorizontalAlignment="Left" Height="20" Margin="1032,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Background="#FFF58498" BorderBrush="Black"/>
+        <TextBox x:Name="tb_teg" HorizontalAlignment="Left" Height="20" Margin="1032,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Background="#FFF58498" BorderBrush="Black"/>
+        <TextBox x:Name="tb_location" HorizontalAlignment="Left" Height="20" Margin="953,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Background="#FFF58498" BorderBrush="Black"/>
+        <TextBox x:Name="tb_link" HorizontalAlignment="Left" Height="20" Margin="953,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Background="#FFF58498" BorderBrush="Black"/>
+        <Button x:Name="b_location" Content="Указать путь" HorizontalAlignment="Left" Margin="953,149,0,0" VerticalAlignment="Top" Width="167" Height="24" Background="Black" Foreground="#FFF58498"/>
+        <Button x:Name="b_add" Content="Добавить мем в базу" HorizontalAlignment="Left" Margin="953,250,0,0" VerticalAlignment="Top" Width="167" Height="24" Background="Black" Foreground="#FFF58498"/>
+        <TextBlock HorizontalAlignment="Left" Height="17" Margin="953,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" TextAlignment="Center" FontFamily="Lucida Bright" Text="Выбор категории мемов:"/>
+        <CheckBox x:Name="check_all" Content="All" HorizontalAlignment="Left" Margin="953,371,0,0" VerticalAlignment="Top" Width="167" Background="#FFF58498" BorderBrush="Black" IsChecked="True"/>
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="239,0,0,0" TextWrapping="Wrap" Text="Изображение мема:" VerticalAlignment="Top" Width="704" TextAlignment="Center" FontFamily="Yu Gothic Light" FontSize="20"/>
+        <CheckBox x:Name="check_cat" Content="Cat" HorizontalAlignment="Left" Margin="953,391,0,0" VerticalAlignment="Top" Width="167" Background="#FFF58498" BorderBrush="Black"/>
+        <CheckBox x:Name="check_raccon" Content="Raccon" HorizontalAlignment="Left" Margin="953,411,0,0" VerticalAlignment="Top" Width="167" Background="#FFF58498" BorderBrush="Black"/>
+        <CheckBox x:Name="check_dog" Content="Dog" HorizontalAlignment="Left" Margin="953,431,0,0" VerticalAlignment="Top" Width="167" Background="#FFF58498" BorderBrush="Black"/>
     </Grid>
 </Window>
