@@ -23,7 +23,7 @@
         <TextBox x:Name="tb_teg" HorizontalAlignment="Left" Height="20" Margin="1032,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Background="#FFF58498" BorderBrush="Black"/>
         <TextBox x:Name="tb_location" HorizontalAlignment="Left" Height="20" Margin="953,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Background="#FFF58498" BorderBrush="Black"/>
         <TextBox x:Name="tb_link" HorizontalAlignment="Left" Height="20" Margin="953,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Background="#FFF58498" BorderBrush="Black"/>
-        <Button x:Name="b_location" Content="Указать путь" HorizontalAlignment="Left" Margin="953,149,0,0" VerticalAlignment="Top" Width="167" Height="24" Background="Black" Foreground="#FFF58498"/>
+        <Button x:Name="b_location" Content="Указать путь" HorizontalAlignment="Left" Margin="953,149,0,0" VerticalAlignment="Top" Width="167" Height="24" Background="Black" Foreground="#FFF58498" Click="b_location_Click"/>
         <Button x:Name="b_add" Content="Добавить мем в базу" HorizontalAlignment="Left" Margin="953,250,0,0" VerticalAlignment="Top" Width="167" Height="24" Background="Black" Foreground="#FFF58498"/>
         <TextBlock HorizontalAlignment="Left" Height="17" Margin="953,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" TextAlignment="Center" FontFamily="Lucida Bright" Text="Выбор категории мемов:"/>
         <CheckBox x:Name="check_all" Content="All" HorizontalAlignment="Left" Margin="953,371,0,0" VerticalAlignment="Top" Width="167" Background="#FFF58498" BorderBrush="Black" IsChecked="True"/>

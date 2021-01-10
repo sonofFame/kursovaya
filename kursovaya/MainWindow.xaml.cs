@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using MemeFinder.Core;
+using Microsoft.Win32;
 
 namespace kursovaya
 {
@@ -22,7 +11,28 @@ namespace kursovaya
     {
         public MainWindow()
         {
+            this.DataContext = new MainViewModel();
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Функция предоставляет доступ к выбору файла,который будет мы потом сохраним
+        /// </summary>
+        private void b_location_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fd = new OpenFileDialog
+            {
+                InitialDirectory = "c:\\",
+                Filter = "png files (*.png)|(*.jpeg)|(*.gif)|*.png|All files (*.*)|*.*",
+                FilterIndex = 2,
+                RestoreDirectory = true
+            };
+            if ((bool)fd.ShowDialog())
+            {
+                //Get the path of specified file
+                (this.DataContext as MainViewModel).MemeLocation = fd.FileName;
+            }
+        }
     }
+
 }
