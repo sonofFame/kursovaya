@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace kursovaya.Core.ExpressionHelper
+namespace kursovaya.Core
 {
     /// <summary>
     /// класс - помощник для работы с выражениями
