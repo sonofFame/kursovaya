@@ -8,30 +8,28 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Input;
 
-namespace kursovaya.Core.ViewModels
+namespace kursovaya.Core
 {
     public class CmainViewModel
     {
-        public ObservableCollection<Cmem> Memes { get; set; }
+        public ObservableCollection<Cmem> Mems { get; set; }
 
-        public string MemeName { get; set; }
-        public string MemeCategory { get; set; }
-        public string MemeLocation { get; set; }
+        public string MemName { get; set; }
+        public string MemCategory { get; set; }
+        public string MemLocation { get; set; }
 
-        public string MemeHashTag { get; set; } = "#";
-        public Uri MemeUrl { get; set; }
+        public string MemHashTag { get; set; } = "#";
+        public Uri MemUrl { get; set; }
         public string SearchString { get; set; }
 
-        public ICommand DeleteMemeCommand { get; set; }
-        public ICommand AddNewMemeCommand { get; set; }
+        public ICommand DeleteMemCommand { get; set; }
+        public ICommand AddNewMemCommand { get; set; }
         public ICommand SearchCommand { get; set; }
 
         public CmainViewModel()
         {
 
         }
-
-            
         
     }
 }
