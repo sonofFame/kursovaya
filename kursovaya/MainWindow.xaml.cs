@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using MemeFinder.Core;
+using kursovaya.Core;
 using Microsoft.Win32;
 
 namespace kursovaya
@@ -11,7 +11,7 @@ namespace kursovaya
     {
         public MainWindow()
         {
-            this.DataContext = new MainViewModel();
+            this.DataContext = new CmainViewModel();
             InitializeComponent();
         }
 
@@ -30,7 +30,7 @@ namespace kursovaya
             if ((bool)fd.ShowDialog())
             {
                 //Get the path of specified file
-                (this.DataContext as MainViewModel).MemeLocation = fd.FileName;
+                (this.DataContext as CmainViewModel).MemLocation = fd.FileName;
             }
         }
     }
