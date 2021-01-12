@@ -28,8 +28,39 @@ namespace kursovaya.Core
 
         public CmainViewModel()
         {
-
+            CDataManager.LoadData();
+            Mems = CDataManager.Memes;
         }
-        
+
+
+        /// <summary>
+        /// Открытие диалогового окна для скачивания мема по ссылке
+        /// </summary>
+        private void SelectPathDownload()
+        {
+            var dlg = new CommonOpenFileDialog
+            {
+                Title = "My Title",
+                IsFolderPicker = true,
+                InitialDirectory = Cmem.filePath,
+
+                AddToMostRecentlyUsedList = false,
+                AllowNonFileSystemItems = false,
+                DefaultDirectory = Cmem.filePath,
+                EnsureFileExists = true,
+                EnsurePathExists = true,
+                EnsureReadOnly = false,
+                EnsureValidNames = true,
+                Multiselect = false,
+                ShowPlacesList = true
+            };
+
+            if (dlg.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                var folder = dlg.FileName;
+                Cmem.filePath = folder;
+            }
+        }
+
     }
 }

@@ -7,8 +7,8 @@ using System.Text;
 
 namespace kursovaya.Core
 {
-    class CDataManager
-    {
+   static class CDataManager
+   {
         static readonly string fileName = "../../../Data/Data.json";
 
         public static ObservableCollection<Cmem> Memes { get; set; }
