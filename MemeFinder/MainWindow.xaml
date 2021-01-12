@@ -7,7 +7,7 @@
         xmlns:core ="clr-namespace:MemeFinder.Core;assembly=MemeFinder.Core"
         mc:Ignorable="d"
         x:Name="MemeWindow"
-        Title="MEMEFINDER" Height="600" Width="900" MaxHeight="600" MaxWidth="900">
+        Title="Курсовая работа - База мемов!" Height="600" Width="900" MaxHeight="600" MaxWidth="900">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="194*" />
@@ -20,10 +20,10 @@
         </Grid.RowDefinitions>
         <!--Main Content-->
         <Grid Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="0,0,238,0">
-            <TabControl>
+            <TabControl Background="White">
                 <TabItem Header="Главная страница" FontSize="20">
                     <Grid Grid.Row="1" x:Name="ImageContent">
-                        <MediaElement Source="{Binding ElementName=MemeList, Path=SelectedItem.Source}"/>
+                        <MediaElement Source="{Binding ElementName=MemeList, Path=SelectedItem.Source}" Margin="0,0,31,0"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="Добавить новый мем" FontSize="20">
@@ -42,18 +42,18 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="Название мема" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="141"  />
                         <TextBlock Grid.Row="1" Text="Категория мема"  HorizontalAlignment="Center" VerticalAlignment="Center"  />
-                        <TextBlock Grid.Row="3" Text="Путь к фотографии мема" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" ><Run Language="ru-ru" Text="Путь к мему"/></TextBlock>
                         <TextBlock Grid.Row="2" Text="ХешТег" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        <TextBox Text="{Binding MemeName}" Grid.Column="1"  Margin="10,0,0,0" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" MaxWidth="600" Width="200" Height="29"  />
-                        <TextBox Text="{Binding MemeHashTag}" Grid.Row="2" Grid.Column="1"  Margin="10,0,0,0" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" MaxWidth="600" Width="200" Height="29"  />
-                        <TextBox Text="{Binding MemeCategory}" Grid.Row="1" Grid.Column="1"  Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" MaxWidth="600" Width="200" Height="29"/>
+                        <TextBox Text="{Binding MemeName}" Grid.Column="1"  Margin="10,0,0,0" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" MaxWidth="600" Width="323" Height="29"  />
+                        <TextBox Text="{Binding MemeHashTag}" Grid.Row="2" Grid.Column="1"  Margin="10,0,0,0" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" MaxWidth="600" Width="323" Height="29"  />
+                        <TextBox Text="{Binding MemeCategory}" Grid.Row="1" Grid.Column="1"  Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" MaxWidth="600" Width="323" Height="29"/>
                         <Grid Grid.Row="3" Grid.Column="1" >
-                            <Button Content="Указать путь" Click="OpenFileDilaog_Click"   Margin="0" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"  Width="150" Height="30"/>
-                            <TextBox Text="{Binding MemeLocation}"  Margin="0" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right"  Width="160" Height="30" />
+                            <Button Content="Указать путь" Click="OpenFileDilaog_Click" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"  Width="132" Height="30"/>
+                            <TextBox Text="{Binding MemeLocation}"  Margin="137,0,0,0" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"  Width="191" Height="30" />
                         </Grid>
                         <TextBlock  Text="Ссылка на мем" Grid.Row="4"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="141" />
                         <Grid Grid.Row="4" Grid.Column="1"  >
-                            <TextBox Text="{Binding  MemeUrl}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="27" Width="141" />
+                            <TextBox Text="{Binding  MemeUrl}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="27" Width="328" />
                         </Grid>
                         <Button  Grid.Row="5" Grid.ColumnSpan="2"  Content="Добавить" Command="{Binding AddNewMemeCommand}" />
 
@@ -71,7 +71,7 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
                 <TextBox Width="200" Text="{Binding SearchString}"/>
-                <Button Content="Поиск" Command="{Binding SearchCommand}"/>
+                <Button Content="Поиск" Command="{Binding SearchCommand}" Width="72"/>
             </StackPanel>
             <ListBox x:Name="MemeList" Grid.Row="2"  ItemsSource="{Binding Memes}">
                 <ListBox.ItemTemplate>

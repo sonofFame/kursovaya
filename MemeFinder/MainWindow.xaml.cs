@@ -22,7 +22,7 @@ namespace MemeFinder
             {
                 InitialDirectory = "c:\\",
                 Filter = "png files (*.png)|(*.jpeg)|(*.gif)|*.png|All files (*.*)|*.*",
-                FilterIndex = 2,
+                FilterIndex = 5,
                 RestoreDirectory = true
             };
             if ((bool)fd.ShowDialog())

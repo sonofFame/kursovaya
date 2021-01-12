@@ -125,6 +125,7 @@ namespace MemeFinder.Core
             MemeCategory = string.Empty;
             MemeName = string.Empty;
             MemeLocation = string.Empty;
+            MemeHashTag = "#";
         }
         /// <summary>
         /// Открытие диалогового окна для скачивания мема по ссылке
