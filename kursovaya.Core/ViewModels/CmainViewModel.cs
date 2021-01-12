@@ -31,6 +31,8 @@ namespace kursovaya.Core
             CDataManager.LoadData();
             Mems = CDataManager.Memes;
             AddNewMemCommand = new CRelayCommands(AddMeme);
+            SearchCommand = new CRelayCommands(Search);
+            DeleteMemCommand = new CRelayParametrizedCommands((mem) => DeleteMeme((Cmem)mem));
         }
 
 
@@ -95,10 +97,61 @@ namespace kursovaya.Core
                     }
 
                 }
+                MakeCurrentMemeEmpty();
                 CDataManager.SaveData();
 
             }
         }
 
+        /// <summary>
+        /// Поиск по названию мема,категории и хештега
+        /// </summary>
+        private void Search()
+        {
+            if (string.IsNullOrEmpty(SearchString))
+            {
+                Mems = null;
+                Mems = CDataManager.Memes;
+            }
+            else
+            {
+                Mems = null;
+                Mems = new ObservableCollection<Cmem>();
+                foreach (var item in CDataManager.Memes)
+                {
+                    if (item.Name.StartsWith(SearchString)
+                        || item.Category.StartsWith(SearchString)
+                        || item.HashTag.StartsWith(SearchString))
+                        Mems.Add(item);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Функция удаляет выбранный мем
+        /// </summary>
+        /// <param name="meme">Выбранный мем</param>
+        private void DeleteMeme(Cmem mem)
+        {
+            Mems.Remove(mem);
+            try
+            {
+                CDataManager.Memes.Remove(mem);
+            }
+            catch { }
+            CDataManager.SaveData();
+            File.Delete(mem.Source);
+
+        }
+
+        /// <summary>
+        /// Очищает текстбоксы,в которых хранится информация о загружаемом меме
+        /// </summary>
+        private void MakeCurrentMemeEmpty()
+        {
+            MemCategory = string.Empty;
+            MemName = string.Empty;
+            MemLocation = string.Empty;
+        }
     }
 }

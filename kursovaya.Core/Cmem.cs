@@ -22,9 +22,14 @@ namespace kursovaya.Core
 
         public static string filePath = "../../../../Memes/";
 
-       
 
-        //функция скачивания мема из интернета по URL
+
+        /// <summary>
+        /// функция скачивания мема из интернета по URL
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="filename"></param>
+        /// <returns></returns>
         public static bool DownloadMem(Uri url, string filename)
         {
             using WebClient client = new WebClient();
