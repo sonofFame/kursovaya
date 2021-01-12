@@ -6,14 +6,14 @@ using System.Windows.Input;
 namespace kursovaya.Core
 {
     /// <summary>
-    /// Базовая класс, который запускает работу
+    /// Базовая команда, которая запускает действие
     /// </summary>
-    public class CRelayParametrizedCommands : ICommand
+    public class CRelayCommands : ICommand
     {
         /// <summary>
-        /// Запуск действий
+        /// Действие для запуска
         /// </summary>
-        private readonly Action<object> mAction;
+        private readonly Action mAction;
 
         /// <summary>
         /// Событие, которое срабатывает, когда <see cref="CanExecute(object)"/> значение изменяется
@@ -21,9 +21,9 @@ namespace kursovaya.Core
         public event EventHandler CanExecuteChanged = (sender, e) => { };
 
         /// <summary>
-        /// стандартный конструктор
+        /// Стандартный конструктор
         /// </summary>
-        public CRelayParametrizedCommands(Action<object> action)
+        public CRelayCommands(Action action)
         {
             mAction = action;
         }
@@ -41,8 +41,7 @@ namespace kursovaya.Core
         /// </summary>
         public void Execute(object parameter)
         {
-            mAction(parameter);
+            mAction();
         }
     }
 }
-
