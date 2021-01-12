@@ -30,6 +30,7 @@ namespace kursovaya.Core
         {
             CDataManager.LoadData();
             Mems = CDataManager.Memes;
+            AddNewMemCommand = new CRelayCommands(AddMeme);
         }
 
 
@@ -59,6 +60,43 @@ namespace kursovaya.Core
             {
                 var folder = dlg.FileName;
                 Cmem.filePath = folder;
+            }
+        }
+
+        /// <summary>
+        /// Функция добавляет мем или загружает его по ссылке
+        /// </summary>
+        private void AddMeme()
+        {
+            if (!string.IsNullOrEmpty(MemName) && !string.IsNullOrEmpty(MemCategory))
+            {
+                if (!string.IsNullOrEmpty(MemLocation))
+                {
+                    Cmem mem = new Cmem(MemName, MemCategory, MemLocation);
+                    if (!MemHashTag.Equals("#"))
+                    {
+                        mem.HashTag = MemHashTag;
+                    }
+                    Mems.Add(mem);
+                }
+                else if (!string.IsNullOrEmpty(MemUrl.ToString()))
+                {
+                    SelectPathDownload();
+                    bool res = Cmem.DownloadMem(MemUrl, MemName);
+                    if (res)
+                    {
+                        MemLocation = Cmem.filePath + '\\' + MemName + ".png";
+                        Cmem mem = new Cmem(MemName, MemCategory, MemLocation);
+                        if (!MemHashTag.Equals("#"))
+                        {
+                            mem.HashTag = MemHashTag;
+                        }
+                        Mems.Add(mem);
+                    }
+
+                }
+                CDataManager.SaveData();
+
             }
         }
 
