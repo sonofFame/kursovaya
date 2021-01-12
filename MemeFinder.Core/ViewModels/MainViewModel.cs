@@ -72,12 +72,12 @@ namespace MemeFinder.Core
             {
                 if (!string.IsNullOrEmpty(MemeLocation))
                 {
-                    Meme mem = new Meme(MemeName, MemeCategory, MemeLocation);
-                    if (!MemeHashTag.Equals("#"))
-                    {
-                        mem.HashTag = MemeHashTag;
-                    }
-                    Memes.Add(mem);
+                        Meme mem = new Meme(MemeName, MemeCategory, MemeLocation);
+                        if (!MemeHashTag.Equals("#"))
+                        {
+                            mem.HashTag = MemeHashTag;
+                        }
+                        Memes.Add(mem);
                 }
                 else if (!string.IsNullOrEmpty(MemeUrl.ToString()))
                 {
