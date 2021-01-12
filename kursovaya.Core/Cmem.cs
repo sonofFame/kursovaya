@@ -1,10 +1,20 @@
 ﻿using System;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Net;
 
 namespace kursovaya.Core
 {
     public class Cmem
     {
+        public Cmem(string name, string category, string source)
+        {
+            Name = name;
+            Category = category;
+            Source = source;
+        }
+
         public string Name { get; set; }
         public string Category { get; set; }
         public string Source { get; set; }
@@ -12,12 +22,7 @@ namespace kursovaya.Core
 
         public static string filePath = "../../../../Memes/";
 
-        public Cmem(string name, string category, string source)
-        {
-            Name = name;
-            Category = category;
-            Source = source;
-        }
+       
 
         //функция скачивания мема из интернета по URL
         public static bool DownloadMem(Uri url, string filename)

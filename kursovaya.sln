@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "kursovaya.Core", "kursovaya.Core\kursovaya.Core.csproj", "{6277E9B8-D2FE-450D-9A4A-FF2CD4B82111}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kursovaya", "kursovaya\kursovaya.csproj", "{45743B58-0183-43BB-B791-B8D35BEAEB5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "kursovaya", "kursovaya\kursovaya.csproj", "{45743B58-0183-43BB-B791-B8D35BEAEB5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,6 +14,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6277E9B8-D2FE-450D-9A4A-FF2CD4B82111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6277E9B8-D2FE-450D-9A4A-FF2CD4B82111}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6277E9B8-D2FE-450D-9A4A-FF2CD4B82111}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6277E9B8-D2FE-450D-9A4A-FF2CD4B82111}.Release|Any CPU.Build.0 = Release|Any CPU
 		{45743B58-0183-43BB-B791-B8D35BEAEB5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
