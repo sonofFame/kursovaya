@@ -6,14 +6,14 @@ using System.Windows.Input;
 namespace MemeFinder.Core
 {
     /// <summary>
-    /// A basic command that runs an Action
+    /// Базовая команда, которая запускает действие
     /// </summary>
     public class RelayCommand : ICommand
     {
         #region Private Members
 
         /// <summary>
-        /// The action to run
+        /// Действие для запуска
         /// </summary>
         private readonly Action mAction;
 
@@ -22,7 +22,7 @@ namespace MemeFinder.Core
         #region Public Events
 
         /// <summary>
-        /// The event thats fired when the <see cref="CanExecute(object)"/> value has changed
+        /// Событие, которое срабатывает, когда <see cref="CanExecute(object)"/> значение изменяется
         /// </summary>
         public event EventHandler CanExecuteChanged = (sender, e) => { };
 
@@ -31,7 +31,7 @@ namespace MemeFinder.Core
         #region Constructor
 
         /// <summary>
-        /// Default constructor
+        /// Стандартный конструктор
         /// </summary>
         public RelayCommand(Action action)
         {
@@ -43,7 +43,7 @@ namespace MemeFinder.Core
         #region Command Methods
 
         /// <summary>
-        /// A relay command can always execute
+        /// Команда ретрансляции всегда может быть выполнена
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>
@@ -53,7 +53,7 @@ namespace MemeFinder.Core
         }
 
         /// <summary>
-        /// Executes the commands Action
+        /// Выполняет действие команды
         /// </summary>
         /// <param name="parameter"></param>
         public void Execute(object parameter)

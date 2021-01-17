@@ -14,7 +14,7 @@ namespace MemeFinder
             InitializeComponent();
         }
         /// <summary>
-        /// Функция предоставляет доступ к выбору файла,который будет мы потом сохраним
+        /// Функция предоставляет доступ к выбору файла,который мы потом сохраним
         /// </summary>
         private void OpenFileDilaog_Click(object sender, RoutedEventArgs e)
         {

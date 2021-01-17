@@ -10,7 +10,7 @@ namespace MemeFinder.Core
     public class BaseViewModel : INotifyPropertyChanged
     {
         /// <summary>
-        /// The event that is fired when any child property changes its value
+        /// Событие, которое срабатывает, когда любое дочернее свойство изменяет свое значение
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
         public void OnPropertyChanged(string name)
@@ -19,27 +19,27 @@ namespace MemeFinder.Core
         }
         #region Command Helpers
         /// <summary>
-        /// Runs a command if the updating flag is not set
-        /// If the flag is true => indicating the function is already running then the action is not run.
-        /// Once the action is finished if it was run, then the flag is reset to false
+        /// Запускает команду, если флажок обновления не установлен
+        /// Если флажок true => указывает на то, что функция уже запущена, то действие не выполняется.
+        /// После завершения действия, если оно было выполнено, флажок сбрасывается на false
         /// </summary>
-        /// <param name="updatingFlag"> the boolean property flag defining if the command is already running</param>
-        /// <param name="action"> The action to run if the command is not already running</param>
+        /// <param name="updatingFlag"> Флажок логического свойства, определяющий, выполняется ли команда уже </param>
+        /// <param name="action"> Действие, выполняемое, если команда еще не запущена </param>
         /// <returns></returns>
         protected async Task RunCommand(Expression<Func<bool>> updatingFlag, Func<Task> action)
         {
             if (updatingFlag.GetPropertyValue())
                   return;
-            // Set the property flag to true to indicate we are running
+            // Установите флажок свойства в значение true, чтобы указать, что мы работаем
             updatingFlag.SetPropertyValue(true);
             try
             {
-                // Run the passed in action
+                // Приводит запуск в действие
                 await action();
             }
             finally
             {
-                // Set the property flag back to false now it's finished
+                // Установите флажок свойства обратно в false - теперь он закончен
                 updatingFlag.SetPropertyValue(false);
             }
 

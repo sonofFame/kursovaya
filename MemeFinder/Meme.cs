@@ -18,6 +18,7 @@ namespace MemeFinder.Core
         public string Category { get; set; }
         public string Source { get; set; }
         public string HashTag { get; set; }
+
         public static string filePath = "../../../../Memes/"; 
         /// <summary>
         /// Функция скачивания мема из интернета по URL

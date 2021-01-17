@@ -7,33 +7,33 @@ using System.Text;
 namespace MemeFinder.Core
 {
     /// <summary>
-    ///  A helper for expressions
+    /// класс - помощник для работы с выражениями
     /// </summary>
     public static class ExpressionHelpers
     {
         /// <summary>
-        /// Compiles an expression and gets the functions return value
+        /// Компилирует выражение и получает возвращаемое функцией значение
         /// </summary>
-        /// <typeparam name="T">Type of value to get</typeparam>
-        /// <param name="lambda">An expression</param>
+        /// <typeparam name="T">Тип получаемого значенияt</typeparam>
+        /// <param name="lambda">Само выражение</param>
         /// <returns></returns>
         public static T GetPropertyValue<T>(this Expression<Func<T>> lambda)
         {
             return lambda.Compile().Invoke();
         }
+
         /// <summary>
-        /// Sets the underlying properties value to the given value
-        /// from an expression that contains the property
+        /// Устанавливает базовое значение свойств на заданное значение из выражения, содержащего это свойство
         /// </summary>
-        /// <typeparam name="T">Type of value to set</typeparam>
-        /// <param name="lambda">An expression</param>
+        /// <typeparam name="T">Тип устанавливаемого значения</typeparam>
+        /// <param name="lambda">Само выражение</param>
         public static void SetPropertyValue<T>(this Expression<Func<T>> lambda,T value)
         {
             // Converts a lambda ()=> some.Property, to some.Property
             var expression = lambda.Body as MemberExpression;
             var propertyInfo = (PropertyInfo)expression.Member;
             var target = Expression.Lambda(expression.Expression).Compile().DynamicInvoke();
-            // Set the property value
+            // Устанавливает значение свойства
             propertyInfo.SetValue(target, value);
 
 
